@@ -1,6 +1,3 @@
-# To create a local branch
-git clone --recurse-submodules https://github.com/FredyC608/favs.git
-
 VON: Hybrid RL/Heuristic Agent for "Case Closed"
 
 VON is a cutting-edge, hybrid AI agent designed for the "Case Closed" (Tron Light Cycles) challenge. It leverages a unique two-phase architecture, transitioning from a deep reinforcement learning model for early-game strategy to a high-precision heuristic search for endgame tactical dominance.
