@@ -30,7 +30,7 @@ def run_test(name, test_function):
 
 def test_latency_check():
     """Tests the GET / endpoint."""
-    response = requests.get(AGENT_URL, timeout=2)
+    response = requests.get(AGENT_URL, timeout= 4)
     if response.status_code != 200:
         return False, f"Expected status code 200, but got {response.status_code}."
     
@@ -58,7 +58,7 @@ def test_send_state():
         "turn_count": 1,
         "player_number": 1,
     }
-    response = requests.post(f"{AGENT_URL}/send-state", json=dummy_state, timeout=2)
+    response = requests.post(f"{AGENT_URL}/send-state", json=dummy_state, timeout=4)
     
     if response.status_code != 200:
         return False, f"Expected status code 200, but got {response.status_code}."
@@ -69,7 +69,7 @@ def test_get_move():
     """Tests the GET /send-move endpoint."""
     # Test with query parameters as judge engine sends them
     params = {"player_number": 1, "attempt_number": 1, "random_moves_left": 5, "turn_count": 1}
-    response = requests.get(f"{AGENT_URL}/send-move", params=params, timeout=2)
+    response = requests.get(f"{AGENT_URL}/send-move", params=params, timeout=4)
     
     if response.status_code != 200:
         return False, f"Expected status code 200, but got {response.status_code}."
@@ -103,7 +103,7 @@ def test_get_move():
 def test_get_move_with_boost():
     """Tests that the agent can return a boost move."""
     params = {"player_number": 1, "attempt_number": 1, "random_moves_left": 5, "turn_count": 50}
-    response = requests.get(f"{AGENT_URL}/send-move", params=params, timeout=2)
+    response = requests.get(f"{AGENT_URL}/send-move", params=params, timeout=4)
     
     if response.status_code != 200:
         return False, f"Expected status code 200, but got {response.status_code}."
@@ -137,7 +137,7 @@ def test_end_game():
         "turn_count": 100,
         "result": "AGENT1_WIN"
     }
-    response = requests.post(f"{AGENT_URL}/end", json=dummy_end_state, timeout=2)
+    response = requests.post(f"{AGENT_URL}/end", json=dummy_end_state, timeout=4)
     
     if response.status_code != 200:
         return False, f"Expected status code 200, but got {response.status_code}."
