@@ -12,7 +12,7 @@ VON adapts its playstyle based on the game phase to maximize its win rate on the
 
 **Phase 2: Mid/Late Game (Turn 30+) - Tactical Heuristics**
 
-- Transition: At turn 30, control seamlessly passes to a Minimax algorithm.
+- Transition: At turn 30, control seamlessly passes to a Minimax w/ Alpha-Beta Pruning algorithm.
 
 - Objective: As the board becomes crowded, precision is paramount. The heuristic engine aims to execute ruthless tactical maneuvers.
 
