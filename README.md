@@ -10,7 +10,7 @@ VON is a cutting-edge, hybrid AI agent designed for the "Case Closed" (Tron Ligh
 VON adapts its playstyle based on the game phase to maximize its win rate on the $18 \times 20$ torus grid.
 
 
-Phase 2: Mid/Late Game (Turn 30+) - Tactical Heuristics
+**Phase 2: Mid/Late Game (Turn 30+) - Tactical Heuristics**
 
 Transition: At turn 30, control seamlessly passes to a Minimax algorithm.
 
@@ -24,7 +24,7 @@ It calculates the "ownership" of every empty cell on the board based on which ag
 
 This provides a fast and aggressive estimate of future territory control, encouraging the agent to move towards open space that it can claim faster than the opponent.
 
-Technical Deep Dive: The Voronoi Approach
+**Technical Deep Dive: The Voronoi Approach**
 
 We chose a Voronoi-based heuristic for our endgame search for several key reasons:
 
