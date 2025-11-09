@@ -9,6 +9,10 @@ VON is a cutting-edge, hybrid AI agent designed for the "Case Closed" (Tron Ligh
 
 VON adapts its playstyle based on the game phase to maximize its win rate on the $18 \times 20$ torus grid.
 
+**Phase 1: Early Game (Turn 30+) - PPO Reinforcement Learning**
+## Reinforcement Learning Strategy
+
+Our agent uses **self-play PPO** (Proximal Policy Optimization) with a ResNet-based policy network trained on 512 parallel game environments over 50M timesteps. The training pipeline implements **adaptive curriculum learning** that progressively shifts reward emphasis from survival (early) to territory control (mid) to strategic winning (late) based on achieved game lengths. We employ **adaptive batch sizing** based on policy loss variance and **learning rate annealing** to ensure stable convergence, with value loss clipping to prevent divergence. The opponent pool stores checkpoints every 5 updates, forcing the agent to continuously adapt to stronger versions of itself rather than exploiting fixed strategies. Our final deployment combines the trained RL policy with action masking (preventing illegal moves) and boost timing logic, achieving sub-4-second inference on CPU through optimized PyTorch operations.
 
 **Phase 2: Mid/Late Game (Turn 30+) - Tactical Heuristics**
 
