@@ -31,7 +31,7 @@ try:
     # Load the trained policy
     # The 'ppo_policy_weights.pth' file must be in the same directory
     policy = StandalonePpoPolicy().to(DEVICE)
-    policy.load_state_dict(torch.load("ppo_policy_update_120.pth", map_location=DEVICE))
+    policy.load_state_dict(torch.load("ppo_policy_update_100.pth", map_location=DEVICE))
     policy.eval()
     print("--- PPO Policy loaded successfully ---")
 except Exception as e:

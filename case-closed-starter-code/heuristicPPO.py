@@ -41,7 +41,7 @@ try:
     # Load the trained policy
     # The '.pth' file must be in the same directory
     policy = StandalonePpoPolicy().to(DEVICE)
-    policy.load_state_dict(torch.load("ppo_policy_update_120.pth", map_location=DEVICE))
+    policy.load_state_dict(torch.load("ppo_policy_update_100.pth", map_location=DEVICE))
     policy.eval()
     print("--- PPO Policy loaded successfully ---")
 except Exception as e:
@@ -65,7 +65,7 @@ RELATIVE_MAP_PY = {
 DIR_TO_IDX = {(0, -1): 0, (0, 1): 1, (-1, 0): 2, (1, 0): 3}
 
 # --- Heuristic Brain: Search Depth (From heuristicAgent.py) ---
-STRATEGIC_SEARCH_DEPTH = 6
+STRATEGIC_SEARCH_DEPTH = 3
 
 # ++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # + SECTION 1: FLASK SERVER API
